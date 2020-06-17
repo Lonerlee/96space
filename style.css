@@ -1,0 +1,141 @@
+:root {
+    --green-prime: #7FBC04;
+    --green-sec: #7AA22B;
+    --green-dark: #3A7205;
+    --yellow-prime: #BCA01B;
+    --yellow-sec: #9C8C3E;
+    --yellow-dark: #6C5C0E;
+    --purple-prime: #572374;
+    --purple-sec: #4F345E;
+    --purple-dark: #2F143E;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'MuseoModerno', cursive;
+}
+
+body {
+    background-color: var(--purple-sec);
+    background-image: url(images/bgtexture.png);
+}
+
+#game {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90vw;
+    height: 45vw;
+    margin: 4vw;
+    border: 1vw solid var(--purple-prime);
+}
+
+#game-before {
+    display: none;
+}
+
+#game-after {
+    display: none;
+}
+
+#game-lost {
+    font-size: 5vw;
+    align-content: center;
+    display: none;
+    margin: 4vw;
+}
+
+#game-lost h1 {
+    color: var(--yellow-prime);
+}
+
+#game-lost h2 {
+    color: var(--yellow-sec);
+}
+
+#game-space {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#player {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    background-image: url(images/player/0-right.png);
+}
+
+#missile {
+    width: 2vw;
+    height: 45vw;
+    margin-left: 45vw;
+    background-color: var(--yellow-prime);
+    position: absolute;
+    display: none;
+}
+
+/* #missile-reload {
+    width: 3vw;
+    height: 6vw;
+    position: absolute;
+    background-color: var(--yellow-prime);
+    top: 6vw;
+    left: 90vw;
+    background-color: var(--green-dark);
+    padding: 0.5vw;
+}
+
+#missile-reload-percent {
+    width: 100%;
+    height: 100%;
+    background-color: var(--green-prime);
+} */
+
+.enemy {
+    width: 4vw;
+    height: 4vw;
+    margin: 0.5vw;
+    background-image: url(images/enemy/demon1.png);
+    background-size: 100%;
+}
+
+#enemy-board {
+    width: 90vw;
+    height: 15vw;
+}
+
+#enemy-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    max-width: 25vw;
+    margin-left: 32vw;
+    background-color: var(--green-prime);
+    background-image: url(images/bg/classy-fabric.png);
+    border-radius: 20%;
+}
+
+#game-info {
+    width: 90vw;
+    margin: 4vw;
+    border: 1vw solid var(--purple-sec);
+    border-radius: 2vw;
+    background-color: var(--purple-dark);
+    color: var(--yellow-prime);
+    text-align: center;
+    text-justify: justify;
+}
+
+#game-won{
+    padding: 10vw;
+    display: none;
+}
+
+#counter {
+    position: absolute;
+    font-size: 5vw;
+    color: var(--green-prime);
+    margin-left: 2vw;
+}
