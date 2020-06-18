@@ -114,6 +114,14 @@ body {
     background-color: var(--green-prime);
 } */
 
+#warning {
+    width: 100%;
+    padding: 5px;
+    color: red;
+    background-color: var(--purple-dark);
+    display: none;
+}
+
 #buttons {
     position: absolute;
     margin-top: 38vw;
@@ -195,3 +203,9 @@ body {
     color: var(--green-prime);
     margin-left: 2vw;
 }
+
+@media only screen and (max-width: 500px) {
+    #warning {
+        display: block;
+    }
+  }
