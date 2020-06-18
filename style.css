@@ -32,7 +32,7 @@ body {
 }
 
 #game-before {
-    display: none;
+    display: block;
 }
 
 #game-after {
@@ -57,7 +57,28 @@ body {
 #game-space {
     width: 100%;
     height: 100%;
-    display: block;
+    display: none;
+}
+
+#start-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5vw;
+}
+
+
+#start-buttons div {
+    margin: 0.5vw;
+}
+
+#start-button {
+    background-color: var(--green-prime);
+    padding: 1vw;
+}
+
+#rng-button {
+    background-color: var(--yellow-prime);
+    padding: 1vw;
 }
 
 #player {
@@ -92,6 +113,41 @@ body {
     height: 100%;
     background-color: var(--green-prime);
 } */
+
+#buttons {
+    position: absolute;
+    margin-top: 38vw;
+    margin-left: 3vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#game-before-info {
+    display: flex;
+}
+
+#basic-stats {
+    min-width: 270px;
+}
+
+#buttons div {
+    padding: 30px;
+    background-color: rgb(255, 255, 255, 0.4);
+    margin: 0.5vw;
+    background-size: 100%;
+}
+
+#button-right {
+    background-image: url(images/keys/arrow-right.png);
+}
+
+#button-left {
+    background-image: url(images/keys/arrow-left.png);
+}
+
+#button-shoot {
+    background-image: url(images/keys/shoot.png);
+}
 
 .enemy {
     width: 4vw;
