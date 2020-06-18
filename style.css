@@ -139,6 +139,7 @@ body {
 #game-before-info {
     display: flex;
     padding: 5px;
+    color: var(--yellow-prime);
 }
 
 #basic-stats {
