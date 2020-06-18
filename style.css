@@ -44,6 +44,7 @@ body {
     align-content: center;
     display: none;
     margin: 4vw;
+    cursor: pointer;
 }
 
 #game-lost h1 {
@@ -64,6 +65,7 @@ body {
     display: flex;
     flex-direction: row;
     margin: 0.5vw;
+    cursor: pointer;
 }
 
 
@@ -130,8 +132,13 @@ body {
     flex-direction: row;
 }
 
+#buttons div:hover {
+    background-color: var(--yellow-prime);
+}
+
 #game-before-info {
     display: flex;
+    padding: 5px;
 }
 
 #basic-stats {
@@ -143,6 +150,7 @@ body {
     background-color: rgb(255, 255, 255, 0.4);
     margin: 0.5vw;
     background-size: 100%;
+    border-radius: 15%;
 }
 
 #button-right {
@@ -195,6 +203,7 @@ body {
 #game-won{
     padding: 10vw;
     display: none;
+    cursor: pointer;
 }
 
 #counter {
@@ -207,5 +216,9 @@ body {
 @media only screen and (max-width: 500px) {
     #warning {
         display: block;
+    }
+
+    #game {
+        display: none;
     }
   }
