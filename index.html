@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -7,9 +8,11 @@
     <title>96 Space</title>
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div id="warning">
-        <h3>There is too little space to play this game. Try to hold your phone in landscape mode, or change the window width if you are on the computer!</h3>
+        <h3>There is too little space to play this game. Try to hold your phone in landscape mode, or change the window
+            width if you are on the computer!</h3>
     </div>
     <div id="game">
         <div id="game-before">
@@ -28,7 +31,8 @@
                     <h2>How To Play?</h2>
                     <p>You need to shoot the spaceship of Demons down. To do it use the arrow and enter keys.</p>
                     <h2>Tip:</h2>
-                    <p>There is delay for shooting your light beam, also use it only when spaceship turns green. If you will shoot the spaceship when it is red, you will lose some seconds.</p>
+                    <p>There is delay for shooting your light beam, also use it only when spaceship turns green. If you
+                        will shoot the spaceship when it is red, you will lose some seconds.</p>
                 </div>
             </div>
             <div id="start-buttons">
@@ -37,36 +41,36 @@
             </div>
         </div>
         <div id="game-space">
-                <div id="counter">0</div>
-                <!-- <div id="missile-reload">
+            <div id="counter">0</div>
+            <!-- <div id="missile-reload">
                     <div id="missile-reload-percent"></div>
                 </div> -->
-                <div id="player"></div>
-                <div id="buttons">
-                    <div id="button-left" onclick="goLeft()"></div>
-                    <div id="button-shoot" onclick="shootMissile()"></div>
-                    <div id="button-right" onclick="goRight()"></div>
+            <div id="player"></div>
+            <div id="buttons">
+                <div id="button-left" onclick="goLeft()"></div>
+                <div id="button-shoot" onclick="shootMissile()"></div>
+                <div id="button-right" onclick="goRight()"></div>
+            </div>
+            <div id="missile"></div>
+            <div id="enemy-board">
+                <div id="enemy-container">
+                    <div class="enemy" id="enemy1"></div>
+                    <div class="enemy" id="enemy2"></div>
+                    <div class="enemy" id="enemy3"></div>
+                    <div class="enemy" id="enemy4"></div>
+                    <div class="enemy" id="enemy5"></div>
+                    <div class="enemy" id="enemy6"></div>
+                    <div class="enemy" id="enemy7"></div>
+                    <div class="enemy" id="enemy8"></div>
+                    <div class="enemy" id="enemy9"></div>
+                    <div class="enemy" id="enemy10"></div>
+                    <div class="enemy" id="enemy11"></div>
+                    <div class="enemy" id="enemy12"></div>
+                    <div class="enemy" id="enemy13"></div>
+                    <div class="enemy" id="enemy14"></div>
+                    <div class="enemy" id="enemy15"></div>
                 </div>
-                <div id="missile"></div>
-                <div id="enemy-board">
-                    <div id="enemy-container">
-                            <div class="enemy" id="enemy1"></div>
-                            <div class="enemy" id="enemy2"></div>
-                            <div class="enemy" id="enemy3"></div>
-                            <div class="enemy" id="enemy4"></div>
-                            <div class="enemy" id="enemy5"></div>
-                            <div class="enemy" id="enemy6"></div>
-                            <div class="enemy" id="enemy7"></div>
-                            <div class="enemy" id="enemy8"></div>
-                            <div class="enemy" id="enemy9"></div>
-                            <div class="enemy" id="enemy10"></div>     
-                            <div class="enemy" id="enemy11"></div>
-                            <div class="enemy" id="enemy12"></div>
-                            <div class="enemy" id="enemy13"></div>
-                            <div class="enemy" id="enemy14"></div>
-                            <div class="enemy" id="enemy15"></div>
-                    </div>
-                </div>
+            </div>
         </div>
         <div id="game-won" onclick="location.reload()">
             <h1>You won!</h1>
@@ -94,7 +98,8 @@
             <li>Version: 1.1.6</li>
         </ul>
         <h3>Help</h3>
-        <p>Your goal is to destroy all the hostile creatures that are comming from the top. Basically it's just space invaders game with extra steps. :)</p>
+        <p>Your goal is to destroy all the hostile creatures that are comming from the top. Basically it's just space
+            invaders game with extra steps. :)</p>
     </div>
 
     <script>
@@ -110,8 +115,8 @@
         let missileDelay = 1;
         let playerPosition = {
             top: 45,
-            left: (50 - (playerSize/2)) //making starting position to the center relative to playerSize
-        }        
+            left: (50 - (playerSize / 2)) //making starting position to the center relative to playerSize
+        }
 
         let enemyBoardPosition = 0;
         let enemyBoardLowestPoint = 20;
@@ -124,9 +129,9 @@
 
         //game background creator
         function gameBoardBackground() {
-            let rng3=Math.floor(Math.random()*3);
-            let rng4=Math.floor(Math.random()*4);
-            let rng5=Math.floor(Math.random()*5);
+            let rng3 = Math.floor(Math.random() * 3);
+            let rng4 = Math.floor(Math.random() * 4);
+            let rng5 = Math.floor(Math.random() * 5);
 
             let colorUp, colorDown;
 
@@ -137,9 +142,9 @@
                     break;
 
                 case 1:
-                    document.getElementById("game-space").style.background = "url('images/bg/dark-mosaic.png')";        
+                    document.getElementById("game-space").style.background = "url('images/bg/dark-mosaic.png')";
                     break;
-            
+
                 default:
                     document.getElementById("game-space").style.background = "url('images/bg/dust.png')";
                     break;
@@ -149,17 +154,17 @@
                 case 0:
                     colorUp = "rgb(34, 31, 32)";
                     break;
-            
+
                 case 1:
                     colorUp = "rgb(21, 31, 32)";
-                    
+
                     break;
-            
+
                 case 2:
                     colorUp = "rgb(21, 70, 32)";
-                    
+
                     break;
-            
+
                 default:
                     colorUp = "rgb(29, 24, 55)";
 
@@ -169,39 +174,39 @@
             switch (rng5) {
                 case 0:
                     colorDown = "rgb(131, 163, 43)";
-                    
+
                     break;
-            
+
                 case 1:
                     colorDown = "rgb(131, 108, 43)";
-                    
+
                     break;
-            
+
                 case 2:
                     colorDown = "rgb(156, 108, 43)";
-                    
+
                     break;
-            
+
                 case 3:
                     colorDown = "rgb(121, 82, 86)";
-                    
+
                     break;
 
                 default:
                     colorDown = "rgb(34, 183, 86)";
-                    
+
                     break;
             }
 
-            document.getElementById("game").style.background = "linear-gradient("+colorUp+","+colorDown+")";
+            document.getElementById("game").style.background = "linear-gradient(" + colorUp + "," + colorDown + ")";
         }
 
         function gameRandomzier() {
             gameBoardBackground();
-            
+
             //randomizing and showing basics for the next play
 
-            playerSize = 5 + Math.floor(Math.random()*3)*2;
+            playerSize = 5 + Math.floor(Math.random() * 3) * 2;
             if (playerSize === 5) {
                 document.getElementById("sizeID").innerHTML = "Tiny";
             } else if (playerSize === 7) {
@@ -210,7 +215,7 @@
                 document.getElementById("sizeID").innerHTML = "Huge";
             }
 
-            speed = 1 + Math.floor(Math.random()*3);
+            speed = 1 + Math.floor(Math.random() * 3);
             if (speed === 1) {
                 document.getElementById("speedID").innerHTML = "Slow";
             } else if (speed === 2) {
@@ -219,22 +224,22 @@
                 document.getElementById("speedID").innerHTML = "Fast";
             }
 
-            counterStart = 55 + Math.floor(Math.random()*20);
+            counterStart = 55 + Math.floor(Math.random() * 20);
             document.getElementById("secondsID").innerHTML = counterStart + " seconds";
 
-            missileDelay = 0.5 + Math.floor(Math.random()*4)/2;
+            missileDelay = 0.5 + Math.floor(Math.random() * 4) / 2;
             document.getElementById("delayID").innerHTML = missileDelay + " seconds";
 
             //just messing with people and adding some ??? so they will not know what they are chosing
-            let questionMark = Math.floor(Math.random()*4);
+            let questionMark = Math.floor(Math.random() * 4);
 
-            if (questionMark === 1){
+            if (questionMark === 1) {
                 document.getElementById("delayID").innerHTML = "???"
                 document.getElementById("speedID").innerHTML = "???"
             } else if (questionMark === 2) {
                 document.getElementById("delayID").innerHTML = "???"
                 document.getElementById("secondsID").innerHTML = "???"
-            } else if (questionMark === 3){
+            } else if (questionMark === 3) {
                 document.getElementById("secondsID").innerHTML = "???"
                 document.getElementById("sizeID").innerHTML = "???"
             } else {
@@ -247,9 +252,9 @@
         gameRandomzier();
 
         let v = document.getElementById('counter');
-            v.innerText = counterStart; //showing starting number
+        v.innerText = counterStart; //showing starting number
         function incrementSeconds() {
-            if(counterStart > 1) {
+            if (counterStart > 1) {
                 counterStart--;
                 v.innerText = counterStart;
                 changeEnemiesPosition();
@@ -262,21 +267,22 @@
             }
         }
 
-        function changeEnemiesAggro(){ //if the monsters are aggresive you will lose some time
-            if(isEnemyAggresive === 0){
+        function changeEnemiesAggro() { //if the monsters are aggresive you will lose some time
+            if (isEnemyAggresive === 0) {
                 document.getElementById("enemy-container").style.backgroundColor = "green";
-                let v= 15;
-                while(v > 0){
-                document.getElementById("enemy"+v).style.backgroundImage = "url(images/enemy/demon1.png)";
-                v--;}
+                let v = 15;
+                while (v > 0) {
+                    document.getElementById("enemy" + v).style.backgroundImage = "url(images/enemy/demon1.png)";
+                    v--;
+                }
                 isEnemyAggresive++;
-            } else if(isEnemyAggresive = 1) {
+            } else if (isEnemyAggresive = 1) {
                 isEnemyAggresive = 0;
                 document.getElementById("enemy-container").style.backgroundColor = "darkred";
-                let v= 15;
-                while(v > 0){
-                document.getElementById("enemy"+v).style.backgroundImage = "url(images/enemy/demon0.png)";
-                v--;
+                let v = 15;
+                while (v > 0) {
+                    document.getElementById("enemy" + v).style.backgroundImage = "url(images/enemy/demon0.png)";
+                    v--;
                 }
             }
         }
@@ -289,7 +295,7 @@
             playerSizeChange();
         }
 
-        function playerSizeChange(){
+        function playerSizeChange() {
             document.getElementById("player").style.height = playerSize + "vw";
             document.getElementById("player").style.width = playerSize + "vw";
             document.getElementById("player").style.backgroundSize = playerSize + "vw"; //changing the sprite size
@@ -298,49 +304,49 @@
 
         //sprite changer of player
         function changePlayerSprite(e) {
-            if (playerSprite > 10){
-                    playerSprite = 0;
+            if (playerSprite > 10) {
+                playerSprite = 0;
             }
 
-            if (e === 0){
-                document.getElementById('player').style.backgroundImage = "url('images/player/"+ playerSprite +"-right.png')";
+            if (e === 0) {
+                document.getElementById('player').style.backgroundImage = "url('images/player/" + playerSprite + "-right.png')";
                 playerSprite++;
-            } else if(e = 1){
-                document.getElementById('player').style.backgroundImage = "url('images/player/"+ playerSprite +"-left.png')";
+            } else if (e = 1) {
+                document.getElementById('player').style.backgroundImage = "url('images/player/" + playerSprite + "-left.png')";
                 playerSprite++;
             }
         }
 
         changePlayerPosition();
 
-        function enemiesMove(){
-            if(enemiesDirection === 0){
-                if(enemiesPosition < enemiesSpeed*2) {
+        function enemiesMove() {
+            if (enemiesDirection === 0) {
+                if (enemiesPosition < enemiesSpeed * 2) {
                     enemiesDirection = 1;
                 }
                 enemiesPosition -= enemiesSpeed
-                document.getElementById("enemy-container").style.marginLeft = enemiesPosition + "vw"; 
+                document.getElementById("enemy-container").style.marginLeft = enemiesPosition + "vw";
             } else {
-                if(enemiesPosition > 62-(enemiesSpeed*2)) {
+                if (enemiesPosition > 62 - (enemiesSpeed * 2)) {
                     enemiesDirection = 0;
                 }
                 enemiesPosition += enemiesSpeed
-                document.getElementById("enemy-container").style.marginLeft = enemiesPosition + "vw"; 
+                document.getElementById("enemy-container").style.marginLeft = enemiesPosition + "vw";
             }
         }
-        
-        function changeEnemiesPosition(){
+
+        function changeEnemiesPosition() {
             document.getElementById("enemy-board").style.marginTop = (enemyBoardLowestPoint / counterStart) + "vw";
         }
 
         //changing boundaries and player position
         function changePlayerPosition() {
-            if ( playerPosition.left < 5 ) {
+            if (playerPosition.left < 5) {
                 playerPosition.left = 5;
-            } else if ( playerPosition.left > (95-playerSize)) {
+            } else if (playerPosition.left > (95 - playerSize)) {
                 playerPosition.left = (95 - playerSize);
             } else {
-            document.getElementById('player').style.left = playerPosition.left + "vw";
+                document.getElementById('player').style.left = playerPosition.left + "vw";
             }
         }
 
@@ -352,45 +358,45 @@
                 inter = 0;
                 document.getElementById("game-won").style.display = "block";
                 document.getElementById("game-space").style.display = "none";
-                gameWon=1;
+                gameWon = 1;
                 document.getElementById("final-missiles").innerHTML = numberOfShoots;
-                
+
                 document.getElementById("final-seconds").innerHTML = finalCount;
-                
-                document.getElementById("final-score").innerHTML = Math.round(finalCount*1000/numberOfShoots);
+
+                document.getElementById("final-score").innerHTML = Math.round(finalCount * 1000 / numberOfShoots);
             }
             health--;
         }
 
-        function shootMissile(){
-            if(isMissileVisible === 0){ //if missile is visible you cannot shoot another one
+        function shootMissile() {
+            if (isMissileVisible === 0) { //if missile is visible you cannot shoot another one
                 isMissileVisible = 1;
                 numberOfShoots++;
                 //starting to display beam of light
-            document.getElementById('missile').style.marginLeft = playerPosition.left + "vw";
-            document.getElementById('missile').style.display = "block";
-            document.getElementById('missile').style.backgroundColor = "rgb(200,200,200,0.3)";
-            document.getElementById('missile').style.width = "0.5vw";
-            setTimeout(() => { 
-            document.getElementById('missile').style.width = "1vw"; 
-            document.getElementById('missile').style.backgroundColor = "rgb(200,200,20,1)";
-            let missilePositionLeft = document.getElementById('missile').style.marginLeft;
-            if(playerPosition.left >= enemiesPosition && playerPosition.left <= enemiesPosition+25) {   //checking if it got enemy
-                if(isEnemyAggresive === 0) {
-                    counterStart--;
-                } else {
-                    enemyDown();
-                }
+                document.getElementById('missile').style.marginLeft = playerPosition.left + "vw";
+                document.getElementById('missile').style.display = "block";
+                document.getElementById('missile').style.backgroundColor = "rgb(200,200,200,0.3)";
+                document.getElementById('missile').style.width = "0.5vw";
+                setTimeout(() => {
+                    document.getElementById('missile').style.width = "1vw";
+                    document.getElementById('missile').style.backgroundColor = "rgb(200,200,20,1)";
+                    let missilePositionLeft = document.getElementById('missile').style.marginLeft;
+                    if (playerPosition.left >= enemiesPosition && playerPosition.left <= enemiesPosition + 25) {   //checking if it got enemy
+                        if (isEnemyAggresive === 0) {
+                            counterStart--;
+                        } else {
+                            enemyDown();
+                        }
+                    }
+                    setTimeout(() => {
+                        document.getElementById('missile').style.display = "none";
+                        isMissileVisible = 0;
+                    }, 100);
+                }, 1000 * missileDelay);
             }
-            setTimeout(() => { 
-                document.getElementById('missile').style.display = "none";
-                isMissileVisible = 0;
-        }, 100);
-        }, 1000*missileDelay);
-        }
         }
 
-        document.onkeydown = function(e) {
+        document.onkeydown = function (e) {
             console.log("key");
             if (e.keyCode === 37) {
                 goLeft();
@@ -402,21 +408,22 @@
             }
         }
 
-        function goLeft(){
+        function goLeft() {
 
             console.log("left");
-                playerPosition.left = playerPosition.left - speed;
-                changePlayerPosition();
-                changePlayerSprite(1);
+            playerPosition.left = playerPosition.left - speed;
+            changePlayerPosition();
+            changePlayerSprite(1);
         }
 
         function goRight() {
-            
+
             console.log("right");
-                playerPosition.left = playerPosition.left + speed;
-                changePlayerPosition();
-                changePlayerSprite(0);
+            playerPosition.left = playerPosition.left + speed;
+            changePlayerPosition();
+            changePlayerSprite(0);
         }
     </script>
 </body>
+
 </html>
